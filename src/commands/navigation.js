@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { getRootDirectory } from '../utils/path.js';
 import { MESSAGES } from '../utils/messages.js';
 import { validateArgs, validateDirectory } from '../utils/validation.js';
+import { printDirectoryTable } from '../utils/print.js';
 
 export const NAVIGATION_COMMANDS = {
   UP: 'up',
@@ -81,13 +82,9 @@ export async function listDirectory() {
     directories.sort((a, b) => a.name.localeCompare(b.name));
     files.sort((a, b) => a.name.localeCompare(b.name));
 
-    for (const dir of directories) {
-      console.log(`${dir.name} - ${dir.type}`);
-    }
+    const allItems = [...directories, ...files];
 
-    for (const file of files) {
-      console.log(`${file.name} - ${file.type}`);
-    }
+    printDirectoryTable(allItems);
   } catch {
     throw new Error(MESSAGES.OPERATION_FAILED);
   }
