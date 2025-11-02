@@ -1,9 +1,11 @@
 import { parseCommand } from '../utils/parsers.js';
 import { navigationHandlers } from './navigation.js';
+import { fileHandlers } from './file.js';
 import { MESSAGES } from '../utils/messages.js';
 
 const commandHandlers = {
   ...navigationHandlers,
+  ...fileHandlers,
 };
 
 /**
