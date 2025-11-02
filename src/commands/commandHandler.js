@@ -2,12 +2,16 @@ import { parseCommand } from '../utils/parsers.js';
 import { navigationHandlers } from './navigation.js';
 import { fileHandlers } from './file.js';
 import { osHandlers } from './os.js';
+import { hashHandlers } from './hash.js';
+import { compressionHandlers } from './compression.js';
 import { MESSAGES } from '../utils/messages.js';
 
 const commandHandlers = {
   ...navigationHandlers,
   ...fileHandlers,
   ...osHandlers,
+  ...hashHandlers,
+  ...compressionHandlers,
 };
 
 /**
